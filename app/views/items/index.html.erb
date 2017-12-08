@@ -1,0 +1,46 @@
+<div id="ui-view" style="opacity: 1;">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> Items
+          </div>
+          <div class="card-body">
+            <% if flash[:notice] %>
+              <div class="alert alert-warning"><%= flash[:notice] %></div>
+            <% end %>
+
+            <div class="pb-3">
+              <a href="<%= new_item_path %>" class="btn btn-success btn-sm">New</a>
+            </div>
+
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Default price</th>
+                  <th>Category</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <% @items.each do |item| %>
+              <tbody>
+                <tr>
+                  <td><%= item.name %></td>
+                  <td><%= humanized_money(item.default_price) %></td>
+                  <td><%= item.category.name %></td>
+                  <td>
+                    <a href="<%= edit_item_path(item) %>" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="<%= item_path(item) %>" data-method="delete" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
