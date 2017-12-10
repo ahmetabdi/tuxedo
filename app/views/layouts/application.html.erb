@@ -11,8 +11,8 @@
     <title>Tuxedo</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
@@ -36,7 +36,7 @@
                 <i class="icon-speedometer"></i> Dashboard
               </a>
 
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/contracts">
                 <i class="icon-people"></i> Contracts
               </a>
 

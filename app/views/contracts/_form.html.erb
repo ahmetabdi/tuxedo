@@ -1,0 +1,42 @@
+<div id="ui-view" style="opacity: 1;">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <strong>Contract</strong>
+            <small>Form</small>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <%= form_with(model: contract, local: true) do |form| %>
+                <% if contract.errors.any? %>
+                  <div id="error_explanation">
+                    <h2><%= pluralize(contract.errors.count, "error") %> prohibited this contract from being saved:</h2>
+
+                    <ul>
+                    <% contract.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                    </ul>
+                  </div>
+                <% end %>
+
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <%= form.label :company_name %>
+                    <%= form.text_field :company_name, class: "form-control" %>
+                  </div>
+
+                  <div class="actions">
+                    <%= form.submit %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

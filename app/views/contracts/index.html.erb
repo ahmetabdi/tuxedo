@@ -1,0 +1,38 @@
+<div id="ui-view" style="opacity: 1;">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <a href="<%= new_contract_path %>" class="btn btn-success btn-sm">New</a>
+          </div>
+          <div class="card-body">
+            <% if flash[:notice] %>
+              <div class="alert alert-warning"><%= flash[:notice] %></div>
+            <% end %>
+
+            <table class="table table-bordered table-striped table-sm">
+              <thead>
+                <tr>
+                  <th>Company name</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <% @contracts.each do |contract| %>
+              <tbody>
+                <tr>
+                  <td><%= contract.company_name %></td>
+                  <td>
+                    <a href="<%= edit_contract_path(contract) %>" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="<%= contract_path(contract) %>" data-method="delete" class="btn btn-danger btn-sm">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
